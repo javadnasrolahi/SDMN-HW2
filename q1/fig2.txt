@@ -1,0 +1,10 @@
+different subnet can't ping eachother so we have to add routing rule in root name space and route packets to the other subnet
+
+
+ip route add 10.10.0.0/24 dev br2
+ip route add 172.0.0.0/24 dev br1
+
+ip netns exec node1 ip route add 10.10.0.0/24 dev veth1
+ip netns exec node2 ip route add 10.10.0.0/24 dev veth2
+ip netns exec node3 ip route add 172.0.0.0/24 dev veth3
+ip netns exec node4 ip route add 172.0.0.0/24 dev veth4

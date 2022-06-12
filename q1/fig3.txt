@@ -1,0 +1,10 @@
+we need to add routing rules for eth that connecetd to the other node 
+
+server 1: 
+ip route add 10.10.0.0/24 dev eth1
+ip route add 172.0.0.0/24 dev br1
+
+server2: 
+ip route add 172.0.0.0/24 dev eth2
+ip route add 10.10.0.0/24 dev br2
+
